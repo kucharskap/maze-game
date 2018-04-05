@@ -68,7 +68,7 @@ function updateStuff(){
     ball.drawMe();
     finish.drawMe();
     finishIt();
-
+    
     requestAnimationFrame(function(){
         updateStuff();
     });

@@ -101,7 +101,6 @@ function moveRight(){
             ball.x = oldPositionX + 5;
         } 
     } 
-    console.log("right");
 }
 
 
@@ -135,7 +134,6 @@ var oldPositionY = ball.y;
             ball.x = oldPositionX-5;
         }
     }
-    console.log("left");
 }
 
 // function moveUp(){
@@ -175,7 +173,7 @@ function wallCollision () {
          hasCollided = true;
         }
     });
-  
+    
  return hasCollided;
 }
   
@@ -191,7 +189,7 @@ function finishIt(){
 body.onkeydown = function(){
 
     switch(event.keyCode){
-        case 90:  //button Z //turn left
+        case 83:  //button S //turn left
             if(ball.direction === "N"){
                 ball.direction = "W";
             } else if(ball.direction === "E"){
@@ -213,7 +211,7 @@ body.onkeydown = function(){
         
         break;
  
-        case 67: // button c //turn right
+        case 68: // button D //turn right
             if(ball.direction === "N"){
                 ball.direction = "E";
             } else if(ball.direction === "E"){
@@ -235,10 +233,16 @@ body.onkeydown = function(){
         break;
  
         case 39: //right arrow
+        if(wallCollision()){
+            moveLeft()===false;
+        }
          moveRight();
         break;
- 
+
         case 37: // left arrow
+        if(wallCollision()){
+            moveRight()===false;
+        }
          moveLeft();
         break;
         
