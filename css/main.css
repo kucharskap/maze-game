@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+body{
+    font-family: 'Source Code Pro', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(77, 127, 209);
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+}
+canvas{
+    background-color: rgba(255, 255, 255, 0.52);
+    margin: 1% 25%;
+    border-radius: 15px;
+}
+
+a{
+    text-decoration-line: none;
+    color: black;
+}
+
+a:visited{
+    color: black;
+}
+
+li{
+    list-style-type: none;
+}
+
+.start{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.52);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 1% 15%;
+    font-size: 10vh;
+    color: black;
+}
+
+.instructions{
+    font-size: 4vh;
+    text-align: left;
+}
+
+.instructions li{
+    margin: 1% 1%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.won{
+    text-align: center;
+    border-radius: 15px;
+    font-size: 7vw;
+    background-color: rgba(255, 255, 255, 0.52);
+    padding: 100px;
+    margin: 100px;
+}
+
+.won-link{
+    font-size: 4vw;
+}
+
+.starthidden{
+    display: none;
+}
+
+.btn-z,
+.btn-c{
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 70px;
+    padding: 10px 23px;
+    background-color: black;
+    color: white;
+    font-size: 6vh;
+    font-weight: bold;
+}
+
+.arrow img{
+    height: 100%;
+}
+.arrow{
+    display: inline-block;
+    vertical-align: middle;
+    height: 70px;
+    background-color: white;
+    border-radius: 70px;
+    padding: 0;
+    margin: 0;
+}
+
