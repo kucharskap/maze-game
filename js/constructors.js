@@ -17,6 +17,21 @@ wall.prototype.drawMe = function () {
     ctx.fillRect(this.x, this.y, this.width, this.height, this.direction);
 };
 
+/********************OBSTACLES************************** */
+function obstacle (myX, myY, myW, myH, myDir, myTime) {
+    this.x = myX;
+    this.y = myY;
+    this.width = myW;
+    this.height = myH;
+    this.direction = myDir;
+    this.spawnTime = myTime;
+}
+  
+obstacle.prototype.drawMe = function () {
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(this.x, this.y, this.width, this.height, this.direction);
+};
+
 /*******************************BALL ********************/
 var ball = {
     x: 65,
@@ -53,8 +68,6 @@ function turnLeft(){
          
   ctx.fillRect(100,100,400,400);
   ctx.clearRect(200,200,100,50);
-
-  console.log(ball.direction);
 }
 
 
@@ -66,10 +79,9 @@ function turnRight (){
   ctx.translate(-300, -300);
          
   ctx.fillRect(100,100,400,400);
-  ctx.clearRect(200,200,100,50);
-    
-  console.log(ball.direction);
+  ctx.clearRect(200,200,100,50);  
 };
+
 
 function moveRight(){ 
  var oldPositionX = ball.x;
@@ -101,6 +113,7 @@ function moveRight(){
             ball.x = oldPositionX + 5;
         } 
     } 
+    console.log(ball.x, ball.y);
 }
 
 
@@ -134,6 +147,7 @@ var oldPositionY = ball.y;
             ball.x = oldPositionX-5;
         }
     }
+    console.log(ball.x, ball.y);
 }
 
 // function moveUp(){
@@ -177,12 +191,32 @@ function wallCollision () {
  return hasCollided;
 }
   
+function obstacleCollision(){
+    var hasCollided = false;
+
+    obstacle.forEach(function(oneObstacle){
+        if(collistion(ball, oneObstacle)){
+            hasCollided = true;
+        }
+    });
+ return hasCollided;
+}
+
+/**********************GAME FINISH ************************************************* */
 function finishIt(){
   if( (ball.x+ball.width) >= finish.x && ball.y>=finish.y && (ball.y + ball.height)<=(finish.y + finish.height)){
     $( "canvas" ).hide();
-    $(".starthidden").show();
+    $(".starthidden-won").show();
    }
 }
+
+function lost(){
+    if(wallCollision()){
+        $( "canvas" ).hide();
+        $(".starthidden-lost").show();
+    }
+} //lost for 1 level
+
 
 // KEYCOMMAND**************************************************************************/
 
@@ -257,4 +291,3 @@ body.onkeydown = function(){
      
  };
 
- 

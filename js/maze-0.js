@@ -17,14 +17,12 @@ finish.x = 500;
 finish.width = 50;
 finish.height = 50;
 
-ball.x = 125;
+ball.x = 125; // ball
 ball.y = 130;
 ball.width = 40;
 ball.height = 40;
 
 // UPDATE STUFF***********************************************************************/
-
-
 
 function updateStuff(){
 
@@ -37,7 +35,8 @@ function updateStuff(){
     ball.drawMe();
     finish.drawMe();
     finishIt();
-
+    lost();
+    
     requestAnimationFrame(function(){
         updateStuff();
     });
