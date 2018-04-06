@@ -8,6 +8,7 @@ body{
     background-image: url("../images/bg.jpg");
     background-size: cover;
 }
+
 canvas{
     background-color: rgba(255, 255, 255, 0.52);
     margin: 1% 25%;
@@ -29,6 +30,7 @@ a:hover{
 
 li{
     list-style-type: none;
+    margin: 1% 1%;
 }
 
 .start{
@@ -46,9 +48,6 @@ li{
     text-align: left;
 }
 
-.instructions li{
-    margin: 1% 1%;
-}
 
 h1 {
     text-align: center;
@@ -59,12 +58,20 @@ h1 {
     border-radius: 15px;
     font-size: 7vw;
     background-color: rgba(255, 255, 255, 0.52);
-    padding: 100px;
-    margin: 100px;
 }
 
 .won-link{
     font-size: 4vw;
+}
+
+.starthidden-lost{
+    padding: 80px;
+    margin: 50px;
+}
+
+.starthidden-won{
+    padding: 100px;
+    margin: 100px;
 }
 
 .starthidden-won,
@@ -97,5 +104,10 @@ h1 {
     margin: 0;
 }
 
+.onkey{
+    padding: 15px 28px;
+}
 
-/***test*/
+.onkey-arrows{
+    height: 90px;
+}

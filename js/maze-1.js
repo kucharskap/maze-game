@@ -43,14 +43,6 @@ var maze =[
 ]
 
 
-// ball.onload  = function(){
-//     maze.forEach(function(oneWall){
-//         oneWall.drawMe();
-//     });
-//     finish.drawMe();
-//     ball.drawMe();
-// }
-
 
 // UPDATE STUFF***********************************************************************/
 
@@ -61,12 +53,12 @@ function updateStuff(){
     maze.forEach(function(oneWall){
         oneWall.drawMe();
     });
-    
+       
     ball.drawMe();
     finish.drawMe();
     finishIt();
-    lost();
-    
+    lostWall();
+
     requestAnimationFrame(function(){
         updateStuff();
     });

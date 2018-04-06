@@ -2,7 +2,6 @@ var canvas = document.querySelector(".board");
 var ctx = canvas.getContext("2d");
 var body = document.querySelector("body");
 
-
 /****************************MAZE************************* */
 function wall (myX, myY, myW, myH, myDir) {
     this.x = myX;
@@ -18,6 +17,9 @@ wall.prototype.drawMe = function () {
 };
 
 /********************OBSTACLES************************** */
+var scribble = new Image();
+scribble.src = "./images/scribble.png";
+
 function obstacle (myX, myY, myW, myH, myDir, myTime) {
     this.x = myX;
     this.y = myY;
@@ -28,8 +30,7 @@ function obstacle (myX, myY, myW, myH, myDir, myTime) {
 }
   
 obstacle.prototype.drawMe = function () {
-    ctx.fillStyle = "yellow";
-    ctx.fillRect(this.x, this.y, this.width, this.height, this.direction);
+    ctx.drawImage(scribble, this.x, this.y, this.width, this.height);
 };
 
 /*******************************BALL ********************/
@@ -58,6 +59,7 @@ var finish = {
 }
 
 /************************TURNS AND MOVES************************** */
+
 
 function turnLeft(){
   
@@ -194,8 +196,8 @@ function wallCollision () {
 function obstacleCollision(){
     var hasCollided = false;
 
-    obstacle.forEach(function(oneObstacle){
-        if(collistion(ball, oneObstacle)){
+    obs.forEach(function(oneObstacle){
+        if(collision(ball, oneObstacle)){
             hasCollided = true;
         }
     });
@@ -210,13 +212,19 @@ function finishIt(){
    }
 }
 
-function lost(){
+function lostWall(){
     if(wallCollision()){
         $( "canvas" ).hide();
         $(".starthidden-lost").show();
     }
 } //lost for 1 level
 
+function lostObs(){
+    if(obstacleCollision()){
+        $( "canvas" ).hide();
+        $(".starthidden-lost").show();
+    }
+}
 
 // KEYCOMMAND**************************************************************************/
 
@@ -280,13 +288,13 @@ body.onkeydown = function(){
          moveLeft();
         break;
         
-        case 40:
-         moveDown();
-        break;
+        // case 40:
+        //  moveDown();
+        // break;
 
-        case 38:
-         moveUp();
-        break;
+        // case 38:
+        //  moveUp();
+        // break;
     }
      
  };

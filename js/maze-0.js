@@ -35,7 +35,6 @@ function updateStuff(){
     ball.drawMe();
     finish.drawMe();
     finishIt();
-    lost();
     
     requestAnimationFrame(function(){
         updateStuff();

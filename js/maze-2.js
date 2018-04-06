@@ -44,14 +44,9 @@ var maze =[
 
 finish.y = 260; //finish line
 
-// ball.onload  = function(){
-//     maze.forEach(function(oneWall){
-//         oneWall.drawMe();
-//     });
-//     finish.drawMe();
-//     ball.drawMe();
-// }
-
+var obs = [new obstacle(150, 150, 20, 20, "N"),
+           new obstacle(200, 200, 20, 20, "N")
+]
 
 // UPDATE STUFF***********************************************************************/
 
@@ -65,10 +60,17 @@ function updateStuff(){
         oneWall.drawMe();
     });
     
+//    // setInterval(function(){
+//         obs.forEach(function(oneObs){
+//             oneObs.drawMe();
+//            // ctx.clearRect(oneObs.x, oneObs.y, oneObs.width, oneObs.height);
+//         });
+//    // }, 2000);
+
     ball.drawMe();
     finish.drawMe();
     finishIt();
-    lost();
+    lostWall();
     
     requestAnimationFrame(function(){
         updateStuff();
